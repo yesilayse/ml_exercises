@@ -13,7 +13,7 @@ le=preprocessing.LabelEncoder()
 play[:,-1]=le.fit_transform(veri.iloc[:,-1])
 print(play)
 
-#♣tüm kategorikleri numerice çevirme
+#♣tüm kategorikleri numerik value çevirme
 from sklearn import preprocessing
 veri2=veri.apply(preprocessing.LabelEncoder().fit_transform)
 #ilk kolon one_hot_encode
@@ -38,7 +38,7 @@ regressor.fit(x_train, y_train)
 y_pred=regressor.predict(x_test)
 print(y_pred)
 
-#backward elimination en büyük p-value yü atmak için
+#backward elimination en büyük p-value  atmak için
 import statsmodels.api as sm
 X=np.append(arr=np.ones((14,1)).astype(int),values=sonveri.iloc[:,:-1],axis=1)
 
@@ -47,7 +47,7 @@ X_l=np.array(X_l,dtype=float)
 model=sm.OLS(sonveri.iloc[:,-1:],X_l).fit()
 print(model.summary())
 
-#çıkardığımız değişkenden sonra kalanıyla tekrar modeli eğitip tahmin yaptırtık kurulan 
+#çıkardığımız değişkenden sonra kalanıyla tekrar modeli eğitip tahmin yaptırdık kurulan 
 #modeli y_test e daha yakın sonuç vermesini sağlayıp iyileştirmeye çalışıyoruz.
 x_train=x_train.iloc[:,[0,1,2,4,5]]
 x_test=x_test.iloc[:,[0,1,2,4,5]]
